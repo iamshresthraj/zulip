@@ -1,4 +1,5 @@
 # Zulip overview
+Open-source team chat with powerful topic-based threading for organized conversations.
 
 [Zulip](https://zulip.com) is an open-source organized team chat app with unique
 [topic-based threading][why-zulip] that combines the best of email and chat to
@@ -7,11 +8,15 @@ source projects][rust-case-study], and thousands of other organizations use
 Zulip every day. Zulip is the only [modern team chat app][features] that is
 designed for both live and asynchronous conversations.
 
-Zulip is built by a distributed community of developers from all around the
-world, with 99+ people who have each contributed 100+ commits. With
-over 1,500 contributors merging over 500 commits a month, Zulip is the
-largest and fastest growing open source team chat project.
+Zulip is built by a distributed community of developers from around the world.
 
+- **1,500+ contributors**
+- **99+ contributors** with more than 100 commits each
+- **500+ commits merged every month**
+
+This makes Zulip one of the largest and fastest-growing open source team chat projects.
+
+## Community
 Come find us on the [development community chat](https://zulip.com/development-community/)!
 
 [![GitHub Actions build status](https://github.com/zulip/zulip/actions/workflows/zulip-ci.yml/badge.svg)](https://github.com/zulip/zulip/actions/workflows/zulip-ci.yml?query=branch%3Amain)
@@ -30,7 +35,15 @@ Come find us on the [development community chat](https://zulip.com/development-c
 [rust-case-study]: https://zulip.com/case-studies/rust/
 [features]: https://zulip.com/features/
 
-## Getting started
+## Key features
+
+- Topic-based threaded conversations
+- Real-time and asynchronous messaging
+- Powerful search across streams and topics
+- Open-source and self-hostable platform
+- Extensive integrations and developer APIs
+
+## Getting started with Zulip
 
 - **Contributing code**. Check out our [guide for new
   contributors](https://zulip.readthedocs.io/en/latest/contributing/contributing.html)
