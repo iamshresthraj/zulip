@@ -561,10 +561,12 @@ export function on_show_navigation_view(): void {
 
 export let on_topic_narrow = (): void => {
     if (!compose_state.composing()) {
-        // If our compose box is closed, then just
-        // leave it closed, assuming that the user is
-        // catching up on their feed and not actively
-        // composing.
+        // If our compose box is closed, open it.
+        start({
+            message_type: "stream",
+            stream_id: narrow_state.stream_id(),
+            topic: narrow_state.topic(),
+        });
         return;
     }
 
@@ -579,8 +581,12 @@ export let on_topic_narrow = (): void => {
             return;
         }
 
-        // Otherwise, avoid a mix.
-        cancel();
+        // Changed stream, empty content. Switch to new stream.
+        start({
+            message_type: "stream",
+            stream_id: narrow_state.stream_id(),
+            topic: narrow_state.topic(),
+        });
         return;
     }
 
@@ -689,6 +695,16 @@ export function on_narrow(opts: NarrowActivateOpts): void {
             // Defer setting focus on the compose box to avoid a
             // whole-screen scrolling bug on iPad/Safari.
             defer_focus: true,
+        });
+        return;
+    }
+
+    const stream_id = narrow_state.stream_id(undefined, true);
+    if (stream_id !== undefined) {
+        start({
+            message_type: "stream",
+            stream_id,
+            topic: "",
         });
         return;
     }
