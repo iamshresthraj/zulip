@@ -566,6 +566,7 @@ export let on_topic_narrow = (): void => {
             message_type: "stream",
             stream_id: narrow_state.stream_id(),
             topic: narrow_state.topic(),
+            defer_focus: true,
         });
         return;
     }
@@ -586,6 +587,7 @@ export let on_topic_narrow = (): void => {
             message_type: "stream",
             stream_id: narrow_state.stream_id(),
             topic: narrow_state.topic(),
+            defer_focus: true,
         });
         return;
     }
@@ -705,6 +707,7 @@ export function on_narrow(opts: NarrowActivateOpts): void {
             message_type: "stream",
             stream_id,
             topic: "",
+            defer_focus: true,
         });
         return;
     }

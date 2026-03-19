@@ -2,7 +2,8 @@
 import argparse
 import glob
 import os
-import pwd
+if os.name != "nt":
+    import pwd
 import subprocess
 import sys
 from typing import Any
@@ -373,6 +374,9 @@ def get_dev_host() -> str:
     host = os.getenv("EXTERNAL_HOST")
     if host is not None:
         return host
+
+    if os.name == "nt":
+        return "localhost:9991"
 
     user_id = os.getuid()
     user_name = pwd.getpwuid(user_id).pw_name

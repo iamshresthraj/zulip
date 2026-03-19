@@ -1,11 +1,16 @@
 import os
-import pwd
+if os.name != "nt":
+    import pwd
 import sys
 
 
 def check_venv(filename: str) -> None:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     venv = os.path.realpath(os.path.join(BASE_DIR, ".venv"))
+    # Skip venv check on Windows for now or if not in a venv-like structure
+    if os.name == "nt":
+        return
+
     if sys.prefix != venv:
         print(f"You need to run {filename} inside a Zulip dev environment.")
         user_id = os.getuid()
